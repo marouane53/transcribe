@@ -62,6 +62,13 @@ This Python script allows you to transcribe audio and video files using the Wit.
 - Create a new app for each language you want to transcribe.
 - Obtain the API key for each language and replace the placeholders in the `LANGUAGE_API_KEYS` dictionary in the script with your actual API keys.
 
+## Windows Release
+
+For Windows users, a pre-packaged release is available that includes the necessary executable files (ffmpeg and yt-dlp) along with the Python script. You can download the release from [here](https://github.com/marouane53/transcribe/releases/download/windows_py/Transcribe.zip).
+
+The release version eliminates the need for installing ffmpeg and yt-dlp separately, as the executable files are included in the package. Simply extract the ZIP file and run the script directly.
+
+
 ## Usage
 
 1. Run the script:
