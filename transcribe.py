@@ -8,6 +8,7 @@ from pathlib import Path
 
 from tafrigh import Config, TranscriptType, Writer, farrigh
 from tafrigh.recognizers.wit_recognizer import WitRecognizer
+from tafrigh.utils.wit import file_utils as wit_file_utils
 
 # Define Wit.ai API keys for languages
 LANGUAGE_API_KEYS = {
