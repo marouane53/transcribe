@@ -17,9 +17,10 @@ This Python script allows you to transcribe audio and video files using the Wit.
 - Python 3.x
 - ffmpeg
 - yt-dlp
-- tafrigh library
+- tafrigh library (pip install "tafrigh[wit])
 - ffmpeg-python library
 - Wit.ai API key for each language you want to transcribe
+- pydub (install this if you get an error)
 
 ## Installation
 
