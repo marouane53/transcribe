@@ -57,11 +57,20 @@ This Python script allows you to transcribe audio and video files using the Wit.
   sudo pip install yt-dlp
   ```
 
-5. Set up Wit.ai API keys:
+5. Set up the environment variables:
+
+- Copy the `.env.example` file to a new file named `.env` in the root directory of your project.
+- Open the `.env` file and replace the placeholder values with your actual Wit.ai API keys and any other necessary configuration values.
+
+Note: The `.env` file is where your sensitive information such as API keys will be stored. It is crucial to ensure this file is never committed to your version control system. The `.gitignore` file in this project is already configured to exclude `.env`.
+
+6. Set up Wit.ai API keys:
 
 - Sign up for a Wit.ai account at [wit.ai](https://wit.ai/) if you don't have one.
 - Create a new app for each language you want to transcribe.
-- Obtain the API key for each language and replace the placeholders in the `LANGUAGE_API_KEYS` dictionary in the script with your actual API keys.
+- Obtain the API key for each language.
+- Open your `.env` file and fill in your Wit.ai API keys next to the corresponding language variables (e.g., `WIT_API_KEY_ENGLISH`, `WIT_API_KEY_ARABIC`, etc.).
+
 
 ## Windows Release
 

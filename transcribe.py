@@ -5,18 +5,28 @@ import subprocess
 import sys
 from collections import deque
 from pathlib import Path
+from dotenv import load_dotenv
 
 from tafrigh import Config, TranscriptType, Writer, farrigh
 from tafrigh.recognizers.wit_recognizer import WitRecognizer
 
-# Define Wit.ai API keys for languages
+# Load environment variables from .env file
+load_dotenv()
+
+# Define Wit.ai API keys for languages using environment variables
 LANGUAGE_API_KEYS = {
-    'EN': 'YOUR_WIT_API_KEY_FOR_ENGLISH',
-    'AR': 'YOUR_WIT_API_KEY_FOR_ARABIC',
-    'FR': 'YOUR_WIT_API_KEY_FOR_FRENCH',
-    'JA': 'YOUR_WIT_API_KEY_FOR_JAPANESE',
+    'EN': os.getenv('WIT_API_KEY_ENGLISH'),
+    'AR': os.getenv('WIT_API_KEY_ARABIC'),
+    'FR': os.getenv('WIT_API_KEY_FRENCH'),
+    'JA': os.getenv('WIT_API_KEY_JAPANESE'),
     # Add more languages and API keys as needed
 }
+
+# Check if at least one API key is provided
+if not any(LANGUAGE_API_KEYS.values()):
+    print("Error: At least one Wit.ai API key must be provided in the .env file.")
+    sys.exit(1)
+
 
 # Set up logging
 #logging.basicConfig(filename='transcription.log', level=logging.DEBUG)
