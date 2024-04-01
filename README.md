@@ -14,18 +14,36 @@ This Python script allows you to transcribe audio and video files using the Wit.
 
 ## Requirements
 
+- Wit.ai API key for each language you want to transcribe
+- Docker (if using the Docker setup).
+if not using Docker:
 - Python 3.x
 - ffmpeg
 - yt-dlp
-- tafrigh library (pip install "tafrigh[wit])
+- tafrigh library (pip install "tafrigh[wit]")
 - ffmpeg-python library
-- Wit.ai API key for each language you want to transcribe
 - pydub (install this if you get an error)
 
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/marouane53/transcribe.git
+```bash
+git clone https://github.com/marouane53/transcribe.git
+```
+### Running with Docker (Recommended)
+
+2. Build the Docker image:
+```bash
+cd transcribe
+docker build -t transcribe-app .
+```
+3. Run the Docker container, mounting the local `downloads` directory:
+```bash
+docker run -it --rm -v $(pwd)/downloads/:/usr/src/app/downloads transcribe-app
+```
+Replace `$(pwd)/downloads/` with the path to your local `downloads` directory you wish to use for saving the transcription results. This ensures that any files downloaded or created by the script will be accessible on your host machine.
+
+### Running Locally
 
 2. Install the required Python packages:
    3. Install ffmpeg:
