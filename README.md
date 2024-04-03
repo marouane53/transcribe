@@ -14,18 +14,36 @@ This Python script allows you to transcribe audio and video files using the Wit.
 
 ## Requirements
 
+- Wit.ai API key for each language you want to transcribe
+- Docker (if using the Docker setup).
+if not using Docker:
 - Python 3.x
 - ffmpeg
 - yt-dlp
-- tafrigh library (pip install "tafrigh[wit])
+- tafrigh library (pip install "tafrigh[wit]")
 - ffmpeg-python library
-- Wit.ai API key for each language you want to transcribe
 - pydub (install this if you get an error)
 
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/marouane53/transcribe.git
+```bash
+git clone https://github.com/marouane53/transcribe.git
+```
+### Running with Docker (Recommended)
+
+2. Build the Docker image:
+```bash
+cd transcribe
+docker build -t transcribe-app .
+```
+3. Run the Docker container, mounting the local `downloads` directory:
+```bash
+docker run -it --rm -v $(pwd)/downloads/:/usr/src/app/downloads transcribe-app
+```
+Replace `$(pwd)/downloads/` with the path to your local `downloads` directory you wish to use for saving the transcription results. This ensures that any files downloaded or created by the script will be accessible on your host machine.
+
+### Running Locally
 
 2. Install the required Python packages:
    3. Install ffmpeg:
@@ -57,11 +75,20 @@ This Python script allows you to transcribe audio and video files using the Wit.
   sudo pip install yt-dlp
   ```
 
-5. Set up Wit.ai API keys:
+5. Set up the environment variables:
+
+- Copy the `.env.example` file to a new file named `.env` in the root directory of your project.
+- Open the `.env` file and replace the placeholder values with your actual Wit.ai API keys and any other necessary configuration values.
+
+Note: The `.env` file is where your sensitive information such as API keys will be stored. It is crucial to ensure this file is never committed to your version control system. The `.gitignore` file in this project is already configured to exclude `.env`.
+
+6. Set up Wit.ai API keys:
 
 - Sign up for a Wit.ai account at [wit.ai](https://wit.ai/) if you don't have one.
 - Create a new app for each language you want to transcribe.
-- Obtain the API key for each language and replace the placeholders in the `LANGUAGE_API_KEYS` dictionary in the script with your actual API keys.
+- Obtain the API key for each language.
+- Open your `.env` file and fill in your Wit.ai API keys next to the corresponding language variables (e.g., `WIT_API_KEY_ENGLISH`, `WIT_API_KEY_ARABIC`, etc.).
+
 
 ## Windows Release
 
