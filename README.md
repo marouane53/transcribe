@@ -28,7 +28,7 @@ if not using Docker:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/marouane53/transcribe.git
+git clone https://github.com/NaoufalElmeskini/transcribe.git
 ```
 ### Running with Docker (Recommended)
 
